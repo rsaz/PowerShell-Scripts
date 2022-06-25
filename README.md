@@ -13,7 +13,7 @@ PowerShell Automation Scripts
 | [create-project.ps1](Scripts/Python/create-proj.ps1) | Create a basic python project structure including test and doc     | [Help](Docs/Python/create-proj.md)  |
 
 
-⚙️ Typescript Automation Scripts
+🌀 Typescript Automation Scripts
 -------------------------------
 
 | Script                                               | Description                                                        | Help                                    |
@@ -34,7 +34,7 @@ PowerShell Automation Scripts
 | ---------------------------------------------------- | ------------------------------------------------------------------ | --------------------------------------- |
 |                                                      |                                                                    |                                         |
 
-♻️ Azure Automation Scripts
+🏢 Azure Automation Scripts
 ---------------------------
 
 | Script                                               | Description                                                        | Help                                    |

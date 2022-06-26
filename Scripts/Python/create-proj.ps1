@@ -1,5 +1,5 @@
 ﻿# Variable declarations
-$gitignore = "https://raw.githubusercontent.com/github/gitignore/main/Python.gitignore"
+$gitignore = "/Scripts/Python/Data/.gitignore"
 
 # Create a python project boilerplate
 Write-Output "Generating Python Project . . ."

@@ -18,6 +18,12 @@
 try {
     # Variable declarations
     $gitignore = "https://raw.githubusercontent.com/rsaz/PowerShell-Scripts/main/Scripts/Python/Data/.gitignore"
+    $main = "https://raw.githubusercontent.com/rsaz/PowerShell-Scripts/main/Scripts/Python/Data/main.py"
+    $test = "https://raw.githubusercontent.com/rsaz/PowerShell-Scripts/main/Scripts/Python/Data/test_example.py"
+    $setup = "https://raw.githubusercontent.com/rsaz/PowerShell-Scripts/main/Scripts/Python/Data/setup.py"
+    $setupconfig = "https://raw.githubusercontent.com/rsaz/PowerShell-Scripts/main/Scripts/Python/Data/setup.cfg"
+
+    # User interaction
     $projectName = Read-Host -Prompt 'Project name '
 
     # Create a python project boilerplate
@@ -31,7 +37,8 @@ try {
 
     # Setting up Main
     Set-Location source
-    New-Item main.py, __init__.py
+    New-Item __init__.py
+    Invoke-WebRequest -Uri $main -OutFile .\main.py
     New-Item $projectName"_package" -ItemType Directory
     Set-Location $projectName"_package"
     New-Item $projectName".py", __init__.py
@@ -39,11 +46,14 @@ try {
     Set-Location tests
     New-Item $projectName"_package" -ItemType Directory
     Set-Location $projectName"_package"
-    New-Item "test_${projectName}_package.py"
-
-    # Downloading gitgnore
+    Invoke-WebRequest -Uri $test -OutFile .\test_example.py
+    Rename-Item -Path "test_example.py" -NewName "test_${projectName}_package.py"
+    
+    # Downloading gitgnore and config files
     Set-Location ..\..\
     Invoke-WebRequest -Uri $gitignore -OutFile .\.gitignore
+    Invoke-WebRequest -Uri $setup -OutFile .\setup.py
+    Invoke-WebRequest -Uri $setupconfig -OutFile .\setup.cfg
 
     # Create a python environment
     Write-Output "=> Creating Python Enviornment -----------------------------------"
